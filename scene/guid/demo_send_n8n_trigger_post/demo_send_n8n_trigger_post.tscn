@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bk6x4dd6ewe0l"]
+
+[ext_resource type="Script" uid="uid://cs3xiw5k1vgkc" path="res://addons/2026_08_05_gdp_http_n8n/n8n_send_post_request.gd" id="1_bhm4m"]
+
+[node name="DemoSendN8nTriggerPost" type="Control" unique_id=779007351]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=679912253]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Push"
+
+[node name="N8nSendPostRequest" type="Node" parent="Button" unique_id=2093517022]
+script = ExtResource("1_bhm4m")
+_n8n_post_http_url = "https://eloistree.app.n8n.cloud/webhook-test/79df0e12-3bd5-483a-841c-456c0beb8be4"
+metadata/_custom_type_script = "uid://cs3xiw5k1vgkc"
+
+[connection signal="button_down" from="Button" to="Button/N8nSendPostRequest" method="send_trigger_request"]
